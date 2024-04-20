@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% comment %} {% load humanize %} {% endcomment %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Latest Games</h1>
+    <div class="row">
+        {% comment %} {%for game in games%}
+        <div class="col-md-3">
+            <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top img-responsive" src={{game.image_url}} alt="Card image cap">
+                <div class="card-body">
+                  <a href="{% url 'game_detail' game.id %}"><h5 class="card-title">{{game.title}}</h5></a>
+                  <p class="card-text">{{ game.description|slice:":80" }}...</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Last updated: {{ game.date_updated|naturaltime }} </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%endfor%} {% endcomment %}
+    </div>
+</div>
+{% endblock content %}
+
+
